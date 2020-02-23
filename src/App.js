@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Container } from 'semantic-ui-react'
 import { setItems } from './actions/items';
 import axios from 'axios';
+import TopMenu from './components/Menu/Menu';
+import ItemCard from './components/ItemCard/ItemCard';
 
 
 class App extends React.Component {
@@ -12,25 +15,27 @@ class App extends React.Component {
 		});
 	}
 	render() {
-		const { items } = this.props;
+		const { items, isReady } = this.props;
 		return (
-			<ul>
+			<Container>
+				<TopMenu />
+
+
 				{
-					items && items.map(item => (
-						<div>
-							<div>Код: {item.code}</div>
-							<div className='item-title'>{item.title}</div>
-							<div><strong>Могут понадобиться:</strong> {item.assocProducts}</div>
-						</div>
-					))
+					!isReady
+						? 'Загрузка...'
+						: items.map(item => <ItemCard {...item} />)
 				}
-			</ul>
+
+			</Container>
+
 		)
 	}
 }
 
 const mapStateToProps = ({ items }) => ({
-	items: items.items
+	items: items.items,
+	isReady: items.isReady
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import createStore from './store';
 import './index.scss';
+import 'semantic-ui-css/semantic.min.css'
 
 
 const store = createStore();
