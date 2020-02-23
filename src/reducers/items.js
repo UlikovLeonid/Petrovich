@@ -1,4 +1,5 @@
 const initialScale = {
+	isReady: false,
 	items: [
 		{
 			"id": 0,
@@ -2310,13 +2311,14 @@ export default (state = initialScale, action) => {
 		case 'SET_ITEMS':
 			return {
 				...state,
-				items: action.payload
+				items: action.payload,
+				isReady: true,
 			};
-		case 'ADD_ITEMS':
+		case 'SET_IS_READY':
 			return {
 				...state,
-				items: [...state.items, action.payload]
-			};
+				isReady: action.payload
+			}
 		default:
 			return state;
 	}

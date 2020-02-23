@@ -1,28 +1,36 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { setItems } from './actions/items'
+import { connect } from 'react-redux';
+import { setItems } from './actions/items';
+import axios from 'axios';
+
 
 class App extends React.Component {
-	render() {
-		const { items } = this.props.items;
+	componentWillMount() {
 		const { setItems } = this.props;
-		const newItems = [
-			{
-				id: 0,
-				title: "Shopping cart"
-			}
-		];
+		axios.get('/items.json').then(({ data }) => {
+			setItems(data);
+		});
+	}
+	render() {
+		const { items } = this.props;
 		return (
-			<div className="container">
-				<h1>{items[0].title}</h1>
-				<button onClick={setItems.bind(this, newItems)}>SET NEW ITEMS</button>
-			</div>
+			<ul>
+				{
+					items && items.map(item => (
+						<div>
+							<div>Код: {item.code}</div>
+							<div className='item-title'>{item.title}</div>
+							<div><strong>Могут понадобиться:</strong> {item.assocProducts}</div>
+						</div>
+					))
+				}
+			</ul>
 		)
 	}
 }
 
-const mapStateToProps = state => ({
-	...state
+const mapStateToProps = ({ items }) => ({
+	items: items.items
 })
 
 const mapDispatchToProps = dispatch => ({
