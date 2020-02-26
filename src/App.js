@@ -5,6 +5,7 @@ import { setItems } from './actions/items';
 import axios from 'axios';
 import TopMenu from './components/Menu/Menu';
 import ItemCard from './components/ItemCard/ItemCard';
+import { Card } from "semantic-ui-react";
 
 
 class App extends React.Component {
@@ -19,13 +20,15 @@ class App extends React.Component {
 		return (
 			<Container>
 				<TopMenu />
+				<Card.Group itemsPerRow={4}>
+					{
+						!isReady
+							? 'Загрузка...'
+							: items.map(item => <ItemCard {...item} />)
+					}
+				</Card.Group>
 
 
-				{
-					!isReady
-						? 'Загрузка...'
-						: items.map(item => <ItemCard {...item} />)
-				}
 
 			</Container>
 

@@ -1,29 +1,48 @@
 import React from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
-
+import { Icon, Image, Card } from "semantic-ui-react";
+import s from "./ItemCard.module.scss";
 const ItemCard = ({
   code,
   title,
-  description,
   assocProducts,
   priceGold,
   priceRetail,
+  priceRetailAlt,
   primaryImageUrl
 }) => (
   <Card>
-    <Image src={primaryImageUrl} wrapped ui={false} />
+    <Card.Meta>
+      <span className="date">Код: {Math.abs(code)}</span>
+    </Card.Meta>
+    <Image src={primaryImageUrl} />
     <Card.Content>
-      <Card.Header>{title}</Card.Header>
-      <Card.Meta>
-        <span className="date">Joined in 2015</span>
-      </Card.Meta>
-      <Card.Description>{description}</Card.Description>
+      <Card.Header>
+        <a className={s.link} href="/">
+          {title}
+        </a>
+      </Card.Header>
+
+      <Card.Description>
+        <strong>Могут понадобиться: </strong>
+        {assocProducts}
+      </Card.Description>
     </Card.Content>
     <Card.Content extra>
-      <a>
+      <div className={s.price}>
+        По карте клуба:&nbsp;
+        <b className={s.clubcard}>
+          {priceGold}
+          <Icon name="rub" />
+        </b>
+      </div>
+
+      <div className={s.common}>
+        {priceRetail}
         <Icon name="rub" />
-        {priceGold}
-      </a>
+      </div>
+      <div className={s.points}>
+        <b>Можно купить за : {priceRetailAlt.toFixed(2)} балла</b>
+      </div>
     </Card.Content>
   </Card>
 );
