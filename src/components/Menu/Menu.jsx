@@ -1,5 +1,6 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
+import s from "./Menu.module.sass";
 
 const TopMenu = () => (
   <Menu>

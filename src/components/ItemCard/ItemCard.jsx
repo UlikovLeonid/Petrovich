@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon, Image, Card } from "semantic-ui-react";
-import s from "./ItemCard.module.scss";
+import s from "./ItemCard.module.sass";
 const ItemCard = ({
   code,
   title,
@@ -8,12 +8,19 @@ const ItemCard = ({
   priceGold,
   priceRetail,
   priceRetailAlt,
-  primaryImageUrl
+  primaryImageUrl,
+  isActive
 }) => (
   <Card>
-    <Card.Meta>
-      <span className="date">Код: {Math.abs(code)}</span>
-    </Card.Meta>
+    <div>
+      <div className={s.top}>
+        <div className={s.code}>Код: {Math.abs(code)}</div>
+
+        <a href="/" className={isActive ? "active" : "none"}>
+          {isActive ? "Наличие" : "Нет в наличии"}{" "}
+        </a>
+      </div>
+    </div>
     <Image src={primaryImageUrl} />
     <Card.Content>
       <Card.Header>
