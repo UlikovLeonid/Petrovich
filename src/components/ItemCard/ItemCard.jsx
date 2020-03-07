@@ -30,8 +30,10 @@ const ItemCard = ({
       </Card.Header>
 
       <Card.Description>
-        <strong>Могут понадобиться: </strong>
-        {assocProducts}
+        <strong> Могут понадобиться: </strong>
+        {assocProducts.split(";").map(elem => (
+          <a href="/">{elem}</a>
+        ))}
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
