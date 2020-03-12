@@ -1,33 +1,59 @@
 .top
-	font-size: 14px
+	font-size: 16px
+	font-family: 'Open Sans Condensed', sans-serif
+	text-transform: uppercase
 	padding: 10px
 	display: flex
 	flex-direction: row
 	justify-content: space-between
 	flex-wrap: no-wrap
-	& .code
+	.code a
 		color: #666
+		&:hover
+			color: #666
+			text-decoration: underline
+
+.header 
+	a:hover
+		color: #666
+		
 .price 
-	font-size: 14px
-	font-family: Arial, Helvetica, sans-serif
+	font-size: 18px
+	font-family: 'Open Sans Condensed', sans-serif
+	text-transform: uppercase
 	color: #000
 	text-align: right
-	& .clubcard 
-		font-size: 25px
-		font-weight: bold
-  
-
-.common 
+.clubcard
+	font-size: 28px
+	font-weight: bold
+.common
+	font-family: 'Open Sans Condensed', sans-serif
+	font-weight: bold
 	display: block
 	width: 100%
-	font-size: 25px
+	font-size: 28px
 	text-align: right
+.points
+	font-family: 'Open Sans Condensed', sans-serif
+	font-size: 18px	
+.assoc 
+	font-style: italic
+	a
+		color: #666
+	& a:hover
+		color: #666
+		text-decoration: underline
+
 
 .points 
 	text-align: right
+	padding: 5px
 
 .link 
 	color: #000
+	font-family: 'Inter', sans-serif
+	&:hover
+		color: #666
 .description a
 	color: #666 !important
 .description a:hover

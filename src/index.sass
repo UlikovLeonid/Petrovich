@@ -77,10 +77,16 @@ select
 		scroll-behavior: auto !important
   
 $green: green
+$red: red
 .active
 	color: $green 
-$red: red
+	&:hover
+		color: $green 
+		text-decoration: underline
+
 
 .none
 	color: $red
-
+	&:hover
+		color: $red 
+		text-decoration: underline
