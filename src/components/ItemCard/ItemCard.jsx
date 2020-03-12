@@ -7,21 +7,20 @@ const ItemCard = ({
   assocProducts,
   priceGold,
   priceRetail,
-  priceGoldAlt,
+  priceRetailAlt,
   primaryImageUrl,
   isActive
 }) => (
   <Card>
-    <div className={s.top}>
-      <div className={s.code}>
-        Артикул:<a href="/"> {Math.abs(code)}</a>
+    <div>
+      <div className={s.top}>
+        <div className={s.code}>Код: {Math.abs(code)}</div>
+
+        <a href="/" className={isActive ? "active" : "none"}>
+          {isActive ? "Наличие" : "Нет в наличии"}{" "}
+        </a>
       </div>
-
-      <a href="/" className={isActive ? "active" : "none"}>
-        {isActive ? "В наличии" : "Нет в наличии"}
-      </a>
     </div>
-
     <Image src={primaryImageUrl} />
     <Card.Content>
       <Card.Header>
@@ -30,7 +29,7 @@ const ItemCard = ({
         </a>
       </Card.Header>
 
-      <Card.Description className={s.assoc}>
+      <Card.Description>
         <strong> Могут понадобиться: </strong>
         {assocProducts.split(";").map(elem => (
           <a href="/">{elem}</a>
@@ -51,7 +50,7 @@ const ItemCard = ({
         <Icon name="rub" />
       </div>
       <div className={s.points}>
-        <b>Можно купить за: {priceGoldAlt.toFixed(2)} балла</b>
+        <b>Можно купить за : {priceRetailAlt.toFixed(2)} балла</b>
       </div>
     </Card.Content>
   </Card>
