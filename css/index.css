@@ -85,10 +85,20 @@ select {
 }
 
 .active {
-  color: green !important;
+  color: green;
+}
+
+.active:hover {
+  color: green;
+  text-decoration: underline;
 }
 
 .none {
   color: red;
+}
+
+.none:hover {
+  color: red;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=index.css.map */
