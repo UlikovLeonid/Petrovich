@@ -24,10 +24,8 @@ const ItemCard = ({
 
     <Image src={primaryImageUrl} />
     <Card.Content>
-      <Card.Header>
-        <a className={s.link} href="/">
-          {title}
-        </a>
+      <Card.Header className={s.link}>
+        <a href="/">{title}</a>
       </Card.Header>
 
       <Card.Description className={s.assoc}>
@@ -48,7 +46,7 @@ const ItemCard = ({
 
       <div className={s.common}>
         {priceRetail}
-        <Icon name="rub" />
+        <Icon name="rub" className={s.red} />
       </div>
       <div className={s.points}>
         <b>Можно купить за: {priceGoldAlt.toFixed(2)} балла</b>

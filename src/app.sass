@@ -19,18 +19,13 @@ h4,
 p,
 ul[class],
 ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd 
+li
 	margin: 0
 
 
 	/* Выставляем основные настройки по-умолчанию для body */
 body 
-	margin-top: 20px !important
+	margin-top: 20px 
 	min-height: 100vh
 	scroll-behavior: smooth
 	text-rendering: optimizeSpeed
@@ -53,11 +48,8 @@ a:not([class])
 	/* Упрощаем работу с изображениями */
 img 
 	max-width: 100%
+	height: auto
 	display: block
-
-	/* Указываем понятную периодичность в потоке данных у article*/
-article > * + * 
-	margin-top: 1em
 
 
 	/* Наследуем шрифты для инпутов и кнопок */

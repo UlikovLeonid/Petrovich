@@ -26,10 +26,6 @@
   text-decoration: underline;
 }
 
-.header a:hover {
-  color: #666;
-}
-
 .price {
   font-size: 18px;
   font-family: 'Open Sans Condensed', sans-serif;
@@ -75,12 +71,12 @@
   padding: 5px;
 }
 
-.link {
+.link a {
   color: #000;
   font-family: 'Inter', sans-serif;
 }
 
-.link:hover {
+.link a:hover {
   color: #666;
 }
 

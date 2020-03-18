@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from 'semantic-ui-react'
 import { setItems } from './actions/items';
+import { Card } from "semantic-ui-react";
 import axios from 'axios';
 import TopMenu from './components/Menu/Menu';
 import ItemCard from './components/ItemCard/ItemCard';
-import { Card } from "semantic-ui-react";
+
 
 
 class App extends React.Component {
@@ -24,7 +25,7 @@ class App extends React.Component {
 					{
 						!isReady
 							? 'Загрузка...'
-							: items.map(item => <ItemCard {...item} />)
+							: items.map((item, i) => <ItemCard key={i} {...item} />)
 					}
 				</Card.Group>
 

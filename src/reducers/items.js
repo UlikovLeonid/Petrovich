@@ -2318,7 +2318,8 @@ export default (state = initialScale, action) => {
 			return {
 				...state,
 				isReady: action.payload
-			}
+			};
+
 		default:
 			return state;
 	}
